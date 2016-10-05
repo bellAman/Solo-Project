@@ -9,7 +9,7 @@
     <input type='text' placeholder="Type name here">
     <br/>
     <h3>Number of steps</h3>
-    <input type='number' placeholder="Give a number">
+    <input type='number' placeholder="Give a number" ng-model="numSteps" >
     </br>
     <h3>End Goal</h3>
     <input type='text' placeholder="Type Goal to achieve">
@@ -17,16 +17,22 @@
     <h3>Congratulatory Message</h3>
     <input type='text' placeholder="Type message">
     </br>
-    <button ng-click="goalMessage()">submit</button>
+    <button ng-click="makeGoal()">submit</button>
   </form>
 
   <h2>Set Up Details</h2>
   <form>
     <h2>Give instructions</h2>
-    <div><!--ng repeat for # of steps-->
-      <h3>Step{{number}}</h3>
-      <input type="text" placeholder="Type insructions for this step">
-    </div>
+    <table>
+      <tr class="stepsLabels">
+          <th><h3>Step Number</h3></th>
+          <th><h3>Instruction</h3></th>
+      </tr>
+      <tr class="stepsContainer" ng-repeat="step in steps">
+        <td><input type="text" class="numberBox"></td>
+        <td><input type="text" placeholder="Type insruction for this step"><td>
+      </tr>
+   </table>
 
    <h2>Select Groups<h2>
 
