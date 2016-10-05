@@ -1,0 +1,38 @@
+<menu></menu>
+<section class="inputPage">
+  <h1>Create a Goal<h1>
+
+  <h2>Set Up Goal</h2>
+  <form>
+    <br/>
+    <h3>Name of Goal<h3>
+    <input type='text' placeholder="Type name here">
+    <br/>
+    <h3>Number of steps</h3>
+    <input type='number' placeholder="Give a number">
+    </br>
+    <h3>End Goal</h3>
+    <input type='text' placeholder="Type Goal to achieve">
+    </br>
+    <h3>Congratulatory Message</h3>
+    <input type='text' placeholder="Type message">
+    </br>
+    <button ng-click="goalMessage()">submit</button>
+  </form>
+
+  <h2>Set Up Details</h2>
+  <form>
+    <h2>Give instructions</h2>
+    <div><!--ng repeat for # of steps-->
+      <h3>Step{{number}}</h3>
+      <input type="text" placeholder="Type insructions for this step">
+    </div>
+
+   <h2>Select Groups<h2>
+
+    <label> <!--ng repeat group names-->
+      <input type="checklist">{{group.name}}
+    </label>
+    <button ui-sref="editGoals">Submit and Review</button>
+  </form>
+</section>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="trackerApp">
+<head>
+    <title>Tracker</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="DevMtn Travels app using ui-routes ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/base/reset.css">
+    <link rel="stylesheet" href="styles/base/fonts.css" >
+    <link rel="stylesheet" href="styles/views/main.css" >
+    <link rel="stylesheet" href="styles/views/progress.css">
+</head>
+
+<body>
+
+
+
+ <ui-view></ui-view>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+
+<script src="./app.js"></script>
+<script src="./js/menuDirective.js" charset="utf-8"></script>
+
+<script src="./js/controllers/addStudentCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/createGoalsCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/editGoalsCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/monitoringCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/savedGoalsCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/studentHomeCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/progressCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/studentLoginCTRL.js" charset="utf-8"></script>
+<script src="./js/controllers/teacherLoginCTRL.js" charset="utf-8"></script>
+
+
+<script src="./js/teacherService.js" charset="utf-8"></script>
+<script src="./js/studentService.js" charset="utf-8"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<section class="progressPage">
+
+  <a ui-sref="studentHome"><img class="house" src="./images/house-48.png" alt="home" /></a>
+  <h1 class="goalTitle">maingoal</h1>
+
+  <div class="stepContainer">
+    <div><!--ngrepeat steps-->
+      <button class="step">
+        <h3 class="stepText" ng-click="revealer()">step#<h3>
+      </button>
+      <div class="instructionBox" ng-show="hide">
+        <h5 class="close" ng-click="revealer()">Close X</h5>
+        <h5 class="stepNum">step#</h5>
+        <p>stepinstruction</p>
+        <button class="help">I Need Help</button>
+        <button>Done</button>
+
+    </div>
+  </div>
+</section>

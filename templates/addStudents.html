@@ -1,0 +1,62 @@
+<menu></menu>
+<section class="inputPage">
+  <h1>My Students</h1>
+  <div><!--ng repeat all students-->
+    <h4>student name</h4>
+  <div>
+  <button ng-click="addStudentRevealer()">Add Students</button> <!--show form-->
+  <form class="add-form" ng-show ="hide">
+    <input  type="text"  placeholder="User Name">
+    <br />
+    <input  type="password"  placeholder="Password">
+    <br />
+    <button ng-click="studentMessage()">Submit</button>
+    <span ng-click="longFormRevealer()">Click here to add multiple students</span> <!--show long from-->
+    </br>
+  </form>
+  <form class="add-form" ng-show="show">
+    <input  type="text"  placeholder="User Name">
+    <input  type="password"  placeholder="Password">
+    <br />
+    <input  type="text"  placeholder="User Name">
+    <input  type="password"  placeholder="Password">
+    <br />
+    <input  type="text"  placeholder="User Name">
+    <input  type="password"  placeholder="Password">
+    <br />
+    <input  type="text"  placeholder="User Name">
+    <input  type="password"  placeholder="Password">
+    <br />
+    <input  type="text"  placeholder="User Name">
+    <input  type="password"  placeholder="Password">
+    <br/>
+    <button ng-click="studentMessage()">Submit</button>
+  </form>
+
+
+  <h1>Create Group<h1>
+  <form class="add-form">
+    <input  type="text"  placeholder="Group Name">
+
+    <button ng-click="groupMessage()">Submit</button>
+  </form>
+
+  <h1>Add/remove students from groups<h1>
+  <div><!--  ng repete groups -->
+    <h3>{{group.name}}group name</h3>
+    <button>Remove Group</button>
+    <button ng-click="groupRevealer()">Add Student to Group</button>
+      <div ng-show="see">
+        <label > <!--show when add button clicked ng repeat student in group-->
+          <input type="checklist">{{student.name}}
+        </label>
+        <button>Remove Student</button>
+      </div>
+  </div>
+
+  <h1>Change Class Code<h1>
+    <form class="add-form">
+      <input type="text" placeholder="Class Code">
+      <button ng-click="codeMessage()">Submit</button>
+    </form>
+</section>

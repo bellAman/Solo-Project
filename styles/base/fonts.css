@@ -1,0 +1,42 @@
+@import 'https://fonts.googleapis.com/css?family=Boogaloo|Muli';
+
+h1{
+  font-family: 'Boogaloo', cursive;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #e00084;
+  margin: 5px;
+}
+h2{
+  font-family: 'Boogaloo', cursive;
+  font-size: 1.5rem;
+  color: #ffc72b;
+  margin: 5px;
+}
+h3{
+  font-family: 'Muli', sans-serif;
+  font-size: 1rem;
+  color: #ffc72b;
+  margin: 5px;
+}
+h4{
+  font-family: 'Muli', sans-serif;
+  font-size: 0.75rem;
+  color: #ffffd5;
+  margin: 5px;
+}
+h5{
+  font-family: 'Muli', sans-serif;
+  font-size: 0.75rem;
+}
+p{
+  font-family: 'Muli', sans-serif;
+  font-size:1rem;
+  color: #333333;
+}
+button{
+  font-family: 'Muli', sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #333333;
+}
