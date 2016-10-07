@@ -1,0 +1,176 @@
+header {
+  height: 12vh;
+  background: linear-gradient(to top, #012235, #98afc7);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+.mainPage {
+  width: 100%;
+  min-height: 100vh;
+  background:#012235;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+input {
+  height: 1.5rem;
+  border-radius: 5px;
+  border-color: #6a2876;
+  border-width: 3px;
+  margin: 10px;
+}
+button {
+  height: 35px;
+  width: 150px;
+  background: #11d240;
+  border-color: #98afc7;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #012235;
+  width: 95%;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  left: 2.5%;
+}
+
+
+span {
+  color: #98afc7;
+}
+
+.menuHead{
+  display:none;
+}
+.menuIcon{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.inputPage{
+  background: #29505d;
+  width: 100%;
+  min-height: 90vh;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.holder {
+  background: #012235;
+  border-radius: 10px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.goalWrapper {
+  border: solid 2px #012235;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap:wrap;
+}
+.student-box {
+  background: #012235;
+  border-radius: 10px;
+  min-height: 20vh;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+.monitorbuttons {
+  display: flex;
+}
+.goal-box{
+  background: #012235;
+  border-radius: 10px;
+  width:95%;
+}
+.goalButton {
+  width: 100px;
+  height: 25px;
+  margin:3px;
+}
+.menuBox{
+  background:#012235;
+  position:absolute;
+  top:10vh;
+  z-index: 1;
+}
+.stepsContainer,
+.stepsLabels {
+  display: flex;
+}
+/*.stepsLabels{
+  display: flex;
+}*/
+.numberBox {
+  width: 20px;
+  /*margin-right: 20px;*/
+}
+th {
+  margin-right:20px;
+}
+
+.numberInput,
+.headline,
+.studentInputBox{
+  display: flex;
+}
+.studentInput {
+  width: 140px;
+}
+.groupBox{
+  display: flex;
+}
+.groupEditButton{
+  width: 100px;
+}
+.groupsStudentsBox{
+  background: #012235;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  position: fixed;
+  top: 10vh;
+  right: 5vw;
+  border: solid 2px #6a2876;
+}
+.label{
+  display: flex;
+  align-items: center;
+
+}
+
+
+@media(min-width:450px){
+  .menuIcon{
+    display: none;
+  }
+  .menuHead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
