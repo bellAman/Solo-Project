@@ -9,7 +9,8 @@ angular.module('trackerApp',['ui.router'])
   })
   .state("teacherHome",{
     url: "/teacher/home",
-    templateUrl:"./templates/teacherHome.html"
+    templateUrl:"./templates/teacherHome.html",
+    controller:"teacherHomeCTRL"
   })
   .state("addStudents",{
     url: "/teacher/addStudents",

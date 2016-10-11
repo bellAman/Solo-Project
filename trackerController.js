@@ -9,7 +9,8 @@ module.exports = {
   },
 
   getStatus: function(req, res){
-    db.read_status([req.params.goalID],function(err, status){
+    db.read_studentsByGoal([req.params.goalID],function(err, status){
+      console.log(res);
       res.status(200).json(status)
     });
   },

@@ -13,6 +13,7 @@ var app = module.exports = express();
 
 app.set('db', massiveInstance);
 var trackerCtrl = require('./trackerController');
+var monitorCtrl = require('./backMonitorController');
 var db = app.get('db');
 
 app.use(bodyParser.json());
@@ -76,14 +77,17 @@ app.get('/auth/logout', function(req, res) {
 
 
 
-app.get('/users', trackerCtrl.getUsers);
-app.get('/studentStatus/:goalID', trackerCtrl.getStatus);
+// app.get('/users', trackerCtrl.getUsers);
+app.get('/goalsStudents/:goalID', trackerCtrl.getStatus);
 app.get('/groups/:teacherID', trackerCtrl.getGroups);
-app.get('/assignedGoals/:studentID', trackerCtrl.getAssignments);
-app.get('/goal/:id', trackerCtrl.getOneGoal);
+// app.get('/assignedGoals/:studentID', trackerCtrl.getAssignments);
+// app.get('/goal/:id', trackerCtrl.getOneGoal);
 app.get('/steps/:studentID', trackerCtrl.getSteps);
-app.get('/groupAssignments/:teacherID', trackerCtrl.getGroupAssignments);
-app.get('/goals/:teacherID', trackerCtrl.getGoals);
+// app.get('/groupAssignments/:teacherID', trackerCtrl.getGroupAssignments);
+
+app.get('/goals/:teacherID', monitorCtrl.getGoals);
+app.get('/steps/:id/:sId', monitorCtrl.getSteps);
+app.get('/students/:id', monitorCtrl.getStudents);
 
 
 app.listen(config.port, function(){

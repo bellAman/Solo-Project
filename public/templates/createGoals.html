@@ -39,9 +39,9 @@
 
    <h2>Select Groups<h2>
 
-    <label class="label"> <!--ng repeat group names-->
+    <label class="label" ng-repeat="group in groups"> <!--ng repeat group names-->
       <input type="checkbox">
-      <h4>{{group.name}}name</h4>
+      <h4>{{group.name}}</h4>
     </label>
     <button ui-sref="editGoals">Submit and Review</button>
   </form>

@@ -8,8 +8,12 @@ $scope.user = 'NOT LOGGED IN';
   function getUser() {
       userService.getUser().then(function(user) {
         console.log(user);
-        if (user) $state.go('teacherHome')
-
+        if (user) {$state.go('teacherHome');
+        function populateStorage(){
+          localStorage.setItem("user", JSON.stringify(user));
+          };
+          populateStorage();
+}
         //  $scope.user = user.firstname;
         else   $scope.user = 'NOT LOGGED IN';
       })

@@ -1,4 +1,3 @@
-SELECT progress.stepNumber, progress.status, steps.instruction
-FROM steps
-JOIN progress ON steps.stepNumber = progress.stepNumber
-WHERE progress.studentID = $1 AND  steps.goalId = progress.goalID;
+SELECT  progress.stepnumber, progress.status, progress.studentid
+FROM progress
+WHERE progress.goalid = $1 AND progress.studentid = $2;

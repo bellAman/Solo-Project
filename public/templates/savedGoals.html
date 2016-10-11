@@ -1,8 +1,8 @@
 <menu></menu>
 <section class="inputPage">
   <h1>My Goals</h1>
-  <div class="goal-box"> <!--ng repeat goals-->
-    <h3>goalname</h3>
+  <div class="goal-box" ng-repeat="goal in goals"> <!--ng repeat goals-->
+    <h3>{{goal.name}}</h3>
 
       <button class="goalButton">Edit</button>
       <button class="goalButton">Delete</button>

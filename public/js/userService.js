@@ -27,6 +27,7 @@ angular.module('trackerApp').service('userService',function($http){
   }
 
   this.logout = function() {
+    console.log("I am logging out");
     return $http({
       method: 'GET',
       url: '/auth/logout'
