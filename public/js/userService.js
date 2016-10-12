@@ -39,4 +39,14 @@ angular.module('trackerApp').service('userService',function($http){
       console.log(err);
     })
   }
+
+  this.addUser = function(message){
+    console.log(message);
+    return $http({
+      method: 'POST',
+      url: '/user',
+      data: message
+    })
+
+  }
 })

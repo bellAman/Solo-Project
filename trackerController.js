@@ -7,6 +7,11 @@ module.exports = {
       res.status(200).json(users)
     });
   },
+  makeUser:function(req, res) {
+    db.create_user([req.body.firstname, req.body.lastname, req.body.email, req.body.password], function(err, user) {
+      res.status(200).json(user)
+    });
+  },
 
   getStatus: function(req, res){
     db.read_studentsByGoal([req.params.goalID],function(err, status){
@@ -51,4 +56,16 @@ module.exports = {
     });
   },
 
-}
+  makeAssignment: function(req, res){
+    db.make_assignment([req.params.id],function(err, assignment){
+      res.status(200).json(assignment)
+    });
+  },
+
+  removeAssignment: function(req, res){
+    db.remove_assignment([req.params.id],function(err, assignment){
+      res.status(200).json(assignment)
+    });
+  },
+
+};

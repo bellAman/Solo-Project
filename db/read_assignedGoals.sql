@@ -1,4 +1,4 @@
-SELECT DISTINCT goals.name, progress.goalID
-FROM progress
-JOIN goals ON goals.Id = progress.goalID
-WHERE progress.studentId = $1 AND progress.assigned = true;
+SELECT DISTINCT goals.name, goals.id
+FROM goals
+JOIN progress ON goals.id = progress.goalId
+WHERE goals.teacherID = $1 AND progress.assigned = true;

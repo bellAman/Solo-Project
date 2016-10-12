@@ -4,7 +4,7 @@ angular.module('trackerApp').service('monitoringService', function($http,$q){
     var defer = $q.defer();
       $http({
         method:"GET",
-        url:'/goals/'+ id
+        url:'/assignedgoals/'+ id
      }).then(function(response){
 
        defer.resolve(response);

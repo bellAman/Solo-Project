@@ -9,7 +9,7 @@
         <button>Remove Student</button>
       </div>
       <div class="monitorbuttons">
-          <button ng-click=getStudents(goal.id)>Get Students</button>
+          <button ng-click="$watch(getStudents(goal.id), clearFn())">Get Students</button>
           <button ui-sref="editGoals">Edit Goal</button>
           <button>Remove this goal from assignment</button>
       </div>

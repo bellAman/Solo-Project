@@ -2,7 +2,7 @@ var app = require('./server');
 var db = app.get('db');
 module.exports = {
   getGoals:function(req, res) {
-    db.read_allGoals([req.params.teacherID],function(err, ids) {
+    db.read_assignedGoals([req.params.teacherID],function(err, ids) {
       res.status(200).json(ids)
     });
   },

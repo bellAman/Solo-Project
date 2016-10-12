@@ -73,19 +73,20 @@ app.get('/auth/logout', function(req, res) {
   res.redirect('/');
 })
 
+app.post('/user', trackerCtrl.makeUser)
 
-
-
-
+app.put('/makeAssignment/:id', trackerCtrl.makeAssignment)
+app.put('/removeAssignment/:id', trackerCtrl.removeAssignment)
 // app.get('/users', trackerCtrl.getUsers);
+app.get('/goals/:teacherID', trackerCtrl.getGoals);
 app.get('/goalsStudents/:goalID', trackerCtrl.getStatus);
 app.get('/groups/:teacherID', trackerCtrl.getGroups);
 // app.get('/assignedGoals/:studentID', trackerCtrl.getAssignments);
 // app.get('/goal/:id', trackerCtrl.getOneGoal);
 app.get('/steps/:studentID', trackerCtrl.getSteps);
 // app.get('/groupAssignments/:teacherID', trackerCtrl.getGroupAssignments);
+app.get('/assignedgoals/:teacherID', monitorCtrl.getGoals);
 
-app.get('/goals/:teacherID', monitorCtrl.getGoals);
 app.get('/steps/:id/:sId', monitorCtrl.getSteps);
 app.get('/students/:id', monitorCtrl.getStudents);
 

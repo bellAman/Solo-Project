@@ -8,18 +8,17 @@
   <h2>{{user}}</h2>
   <form>
     <h4>New Users Click <span ng-click="revealer()">Here</span><h4><!--hide/show-->
-    <div ng-show="hide"><!--show on click-->
-      <input  type="text"  placeholder="First Name">
+    <div ng-show="hide">
+      <input  type="text"  placeholder="First Name" ng-model='message.firstname'>
       <br />
-      <input  type="text"  placeholder="Last Name">
+      <input  type="text"  placeholder="Last Name" ng-model='message.lastname'>
       <br />
-      <input  type="text"  placeholder="Email" ng-model="email">
+      <input  type="text"  placeholder="Email"  ng-model='message.email'>
       <br />
-      <input  type="password"  placeholder="Password" ng-model="password">
+      <input  type="password"  placeholder="Password" ng-model="message.password">
       <br />
-      <button ng-click="">Create User</button>
-    </br>
-      <button>Create User</button>
+      <button ng-click="$watch(makeUser(message), revealer())">Create User</button>
+
     </div>
     <input  type="text"  placeholder="Email" ng-model="email">
     <br />

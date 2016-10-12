@@ -8,6 +8,7 @@ angular.module("trackerApp").directive("menu", function(){
          $scope.show = !$scope.show;
          $scope.hide = !$scope.hide;
        })
+      
      }
    }
  });

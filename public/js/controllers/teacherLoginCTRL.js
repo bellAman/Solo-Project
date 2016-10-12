@@ -3,6 +3,7 @@ angular.module('trackerApp')
   //$scope.test="teacherLoginCTRL ready"
   $scope.revealer = function(){
     $scope.hide = !$scope.hide;
+  //  $scope.show = !$scope.show;
   }
 $scope.user = 'NOT LOGGED IN';
   function getUser() {
@@ -32,7 +33,19 @@ $scope.user = 'NOT LOGGED IN';
       })
     }
 
-    // $scope.logout = userService.logout;
+    $scope.makeUser = function(message){
+
+      if (message) {
+        userService.addUser(message).then(function ( response ) {
+          if(response.status === 200){
+            alert('Welcome to Tracker')
+          }
+          else{
+            alert('error')
+          }
+          })
+      }
+    }
 
 
   })

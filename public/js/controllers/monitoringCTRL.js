@@ -7,7 +7,7 @@ angular.module('trackerApp').controller('monitoringCTRL', function($scope, monit
   })
 })();
 
-$scope.studentsData = [];
+
 Student = function(goalId, studentId, studentName){
   this.goalId = goalId
   this.id = studentId;
@@ -20,11 +20,16 @@ Step = function(id, student, stepnum, status){
   this.stepnumber = stepnum;
   this.status = status;
 }
+$scope.studentsData = [];
+
 var numUsed = {};
 $scope.getStudents = function(id){
-  if(numUsed[id]){
+ if(numUsed[id]){
     return
-  }
+ }
+
+
+ //setInterval(function(){
   $scope.id = id
    monitoringService.getStudents(id).then(function(responseB){
      var sIDarray = [];
@@ -41,7 +46,7 @@ $scope.getStudents = function(id){
                   var data = $scope.studentsData
                   for(var y = 0; y < data.length; y++){
                       for(var z = 0; z < responseC.length; z++){
-                          if(responseC[z].studentid === data[y].id && $scope.id == data[y].goalId){
+                          if(responseC[z].studentid === data[y].id && $scope.id === data[y].goalId){
                             data[y].steps.push(new Step($scope.id , responseC[z].studentid, responseC[z].stepnumber, responseC[z].status) )
                           }
                       }
@@ -52,13 +57,12 @@ $scope.getStudents = function(id){
             $scope.getSteps(gId, sId);
           }
    })
-    numUsed[id]= true;
+   numUsed[id]= true;
+//console.log('ran');
+//},5000,id)
 };
-
+// $scope.clearFn = function(){
+//
+//   clearInterval();}
 
 });
-
-
-
-
-/

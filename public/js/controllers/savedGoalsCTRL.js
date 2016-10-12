@@ -8,4 +8,22 @@ angular.module('trackerApp').controller('savedGoalsCTRL', function($scope, teach
     })
   }
   $scope.getGoals($scope.user);
-})
+
+  $scope.assignGoal = function(id){
+    teacherService.assignGoal(id).then(function(response){
+      if (response.status === 200){
+        alert('This goal has been assigned')
+      }
+    })
+  }
+
+  $scope.unassignGoal = function(id){
+    console.log(id);
+    teacherService.unassignGoal(id).then(function(response){
+      if (response.status === 200){
+        alert('This goal is not assigned to students')
+      }
+    })
+  }
+
+});
