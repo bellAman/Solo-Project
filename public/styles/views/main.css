@@ -45,6 +45,7 @@ form {
   padding: 10px;
   position: relative;
   left: 2.5%;
+  margin: 3px;
 }
 
 
@@ -105,6 +106,7 @@ span {
   background: #012235;
   border-radius: 10px;
   width:95%;
+  margin: 3px;
 }
 .goalButton {
   width: 100px;
@@ -133,8 +135,7 @@ th {
 }
 
 .numberInput,
-.headline,
-.studentInputBox{
+.headline{
   display: flex;
 }
 .studentInput {
@@ -160,7 +161,7 @@ th {
 .label{
   display: flex;
   align-items: center;
-
+  margin-top: -12px;
 }
 
 

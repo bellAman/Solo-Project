@@ -74,10 +74,9 @@ app.get('/auth/logout', function(req, res) {
 })
 
 app.post('/user', trackerCtrl.makeUser)
+app.post('/goal/:id', trackerCtrl.makeGoal)
 
-app.put('/makeAssignment/:id', trackerCtrl.makeAssignment)
-app.put('/removeAssignment/:id', trackerCtrl.removeAssignment)
-// app.get('/users', trackerCtrl.getUsers);
+app.get('/myStudents/:teacherID', trackerCtrl.getStudents)
 app.get('/goals/:teacherID', trackerCtrl.getGoals);
 app.get('/goalsStudents/:goalID', trackerCtrl.getStatus);
 app.get('/groups/:teacherID', trackerCtrl.getGroups);
@@ -86,10 +85,14 @@ app.get('/groups/:teacherID', trackerCtrl.getGroups);
 app.get('/steps/:studentID', trackerCtrl.getSteps);
 // app.get('/groupAssignments/:teacherID', trackerCtrl.getGroupAssignments);
 app.get('/assignedgoals/:teacherID', monitorCtrl.getGoals);
-
 app.get('/steps/:id/:sId', monitorCtrl.getSteps);
 app.get('/students/:id', monitorCtrl.getStudents);
 
+
+app.put('/makeAssignment/:id', trackerCtrl.makeAssignment)
+app.put('/removeAssignment/:id', trackerCtrl.removeAssignment)
+
+app.delete('/deleteGoal/:id', trackerCtrl.deleteGoal)
 
 app.listen(config.port, function(){
   console.log("listening on port " + config.port);

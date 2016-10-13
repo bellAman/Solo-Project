@@ -1,36 +1,37 @@
 <menu></menu>
 <section class="inputPage">
   <h1>My Students</h1>
-  <div><!--ng repeat all students-->
-    <h4>student name</h4>
-  <div>
-  <button ng-click="addStudentRevealer()">Add Students</button> <!--show form-->
-  <form  ng-show ="hide">
-    <h3>How many students would you like to add?</h3>
-    <div class="numberInput">
-      <input  class="numberBox" type="number" ng-model="numInput">
-      <button ng-click="makeInput()">Go</button>
+  <div ng-repeat="student in students"><!--ng repeat all students-->
+    <h4>{{student.username}}</h4>
+
+    <div ng-show="hide">
+      <h4>{{student.password}}</h4>
     </div>
-    <div class="headline">
-      <h3>UserName</h3>
-      <h3>Password</h3>
-    </div>
-    <div class="studentInputBox" ng-repeat="number in numbers">
+  </div>
+  <button ng-click="revealer()">click to see passwords</button>
+<!-- <button ng-click="addStudentRevealer()">Add Students</button> <!--show form-->
+
+  <form>
+
+    <h2>Add Student</h2>
+
+    <div class="studentInputBox">
       <input class="studentInput" type="text"  placeholder="UserName">
       <input class="studentInput" type="password"  placeholder="Password">
     </div>
-    <button ng-click="studentMessage()">Submit</button>
+    <button>Submit</button>
+</form>
+<form>
+  <h2>Create Group<h2>
 
-  <h1>Create Group<h1>
   <form class="add-form">
     <input  type="text"  placeholder="Group Name">
 
     <button ng-click="groupMessage()">Submit</button>
   </form>
-
   <h1>Add/remove students from groups<h1>
-  <div class="groupBox"><!--  ng repete groups -->
-    <h3>{{group.name}}group name</h3>
+  <div class="groupBox" ng-repeat="group in groups"><!--  ng repete groups -->
+    <h3>{{group.name}}</h3>
     <button class="groupEditButton">Remove Group</button>
     <button class="groupEditButton" ng-click="groupRevealer()">Add/Remove Students</button>
       <div class="groupsStudentsBox" ng-show="see">

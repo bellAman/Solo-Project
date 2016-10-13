@@ -5,7 +5,7 @@
     <h3>{{goal.name}}</h3>
 
       <button class="goalButton" ui-sref="editGoals({id:goal.id})">Edit</button>
-      <button class="goalButton">Delete</button>
+      <button class="goalButton" ng-click="deleteGoal(goal.id)">Delete</button>
       <button class="goalButton" ng-click="assignGoal(goal.id)">Assign</button>
       <button class="goalButton" ng-click="unassignGoal(goal.id)">Unassign</button>
 

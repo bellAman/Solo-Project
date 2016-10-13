@@ -18,12 +18,23 @@ angular.module('trackerApp').controller('savedGoalsCTRL', function($scope, teach
   }
 
   $scope.unassignGoal = function(id){
-    console.log(id);
     teacherService.unassignGoal(id).then(function(response){
       if (response.status === 200){
         alert('This goal is not assigned to students')
       }
     })
+  }
+
+  $scope.deleteGoal = function(id){
+    if (confirm('Are you sure you want to delete this? It will be permanent.')) {
+       teacherService.deleteGoal(id).then(function(response){
+         if(response.status === 200){
+          alert('This goal has been deleted')
+         }
+      })
+}
+
+
   }
 
 });

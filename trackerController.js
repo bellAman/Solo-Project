@@ -26,17 +26,17 @@ module.exports = {
     });
   },
 
-  getAssignments: function(req, res){
-    db.read_assignedGoals([req.params.studentID],function(err, assignments){
-      res.status(200).json(assignments)
-    });
-  },
+  // getAssignments: function(req, res){
+  //   db.read_assignedGoals([req.params.studentID],function(err, assignments){
+  //     res.status(200).json(assignments)
+  //   });
+  // },
 
-  getOneGoal: function(req, res){
-    db.read_goal([req.params.id],function(err, goal){
-      res.status(200).json(goal)
-    });
-  },
+  // getOneGoal: function(req, res){
+  //   db.read_goal([req.params.id],function(err, goal){
+  //     res.status(200).json(goal)
+  //   });
+  // },
 
   getSteps: function(req, res){
     db.read_steps([req.params.studentID],function(err, steps){
@@ -44,15 +44,21 @@ module.exports = {
     });
   },
 
-  getGroupAssignments: function(req, res){
-    db.read_groupAssignments([req.params.teacherID],function(err, groupAssignments){
-      res.status(200).json(groupAssignments)
-    });
-  },
+  // getGroupAssignments: function(req, res){
+  //   db.read_groupAssignments([req.params.teacherID],function(err, groupAssignments){
+  //     res.status(200).json(groupAssignments)
+  //   });
+  // },
 
   getGoals: function(req, res){
     db.read_allGoals([req.params.teacherID],function(err, goals){
       res.status(200).json(goals)
+    });
+  },
+
+  getStudents: function(req, res){
+    db.read_allStudents([req.params.teacherID],function(err, students){
+      res.status(200).json(students)
     });
   },
 
@@ -65,6 +71,18 @@ module.exports = {
   removeAssignment: function(req, res){
     db.remove_assignment([req.params.id],function(err, assignment){
       res.status(200).json(assignment)
+    });
+  },
+
+  deleteGoal: function(req, res){
+    db.delete_goal([req.params.id],function(err, goal){
+      res.status(200).json(goal)
+    });
+  },
+
+  makeGoal:function(req, res) {
+    db.create_Goal([req.body.name, req.body.endgoal, req.body.message, req.params.id], function(err, goal) {
+      res.status(200).json(goal)
     });
   },
 
