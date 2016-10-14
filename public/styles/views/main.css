@@ -35,7 +35,8 @@ button {
   margin: 10px;
 }
 
-form {
+form,
+.goalWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,7 +45,7 @@ form {
   border-radius: 10px;
   padding: 10px;
   position: relative;
-  left: 2.5%;
+  /*left: 2.5%;*/
   margin: 3px;
 }
 
@@ -81,14 +82,7 @@ span {
   justify-content: space-between;
 
 }
-.goalWrapper {
-  border: solid 2px #012235;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap:wrap;
-}
+
 .student-box {
   background: #012235;
   border-radius: 10px;
@@ -135,7 +129,8 @@ th {
 }
 
 .numberInput,
-.headline{
+.headline,
+.studentName{
   display: flex;
 }
 .studentInput {
@@ -162,6 +157,12 @@ th {
   display: flex;
   align-items: center;
   margin-top: -12px;
+}
+.studentWrapper{
+  display: flex;
+  /*align-items: center;*/
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 

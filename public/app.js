@@ -48,9 +48,14 @@ angular.module('trackerApp',['ui.router'])
     controller:"studentHomeCTRL"
   })
   .state("progress",{
-    url: "/student/progress",
+    url: "/student/progress/:id",
     templateUrl:"./templates/progress.html",
     controller:"progressCTRL"
+  })
+  .state("editGroup",{
+    url: "/teacher/editGroup/:id",
+    templateUrl:"./templates/editGroups.html",
+    controller:"editGroupsCTRL"
   })
 
   })

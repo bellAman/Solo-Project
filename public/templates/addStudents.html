@@ -1,52 +1,52 @@
 <menu></menu>
 <section class="inputPage">
   <h1>My Students</h1>
-  <div ng-repeat="student in students"><!--ng repeat all students-->
-    <h4>{{student.username}}</h4>
-
-    <div ng-show="hide">
-      <h4>{{student.password}}</h4>
-    </div>
+  <div class="studentWrapper">
+      <div class="studentName" ng-repeat="student in students">
+        <h4>{{student.username}}</h4>
+        <div ng-show="hide">
+          <h4>{{student.username}}'s password is {{student.password}}</h4>
+        </div>
+      </div>
   </div>
   <button ng-click="revealer()">click to see passwords</button>
-<!-- <button ng-click="addStudentRevealer()">Add Students</button> <!--show form-->
 
   <form>
-
     <h2>Add Student</h2>
-
     <div class="studentInputBox">
-      <input class="studentInput" type="text"  placeholder="UserName">
-      <input class="studentInput" type="password"  placeholder="Password">
+      <input class="studentInput" type="text"  placeholder="UserName" ng-model="student.username">
+      <input class="studentInput" type="password"  placeholder="Password" ng-model="student.password">
     </div>
-    <button>Submit</button>
+    <button ng-click="addStudent(student)">Submit</button>
 </form>
-<form>
-  <h2>Create Group<h2>
 
-  <form class="add-form">
-    <input  type="text"  placeholder="Group Name">
+<form class="add-form">
+    <h2>Create Group<h2>
+    <input  type="text"  placeholder="Group Name" ng-model="group.name">
+    <button ng-click="addGroup(group)">Submit</button>
+</form>
 
-    <button ng-click="groupMessage()">Submit</button>
-  </form>
   <h1>Add/remove students from groups<h1>
-  <div class="groupBox" ng-repeat="group in groups"><!--  ng repete groups -->
+  <div class="groupBox" ng-repeat="group in groups track by $index"><!--  ng repete groups -->
     <h3>{{group.name}}</h3>
-    <button class="groupEditButton">Remove Group</button>
-    <button class="groupEditButton" ng-click="groupRevealer()">Add/Remove Students</button>
-      <div class="groupsStudentsBox" ng-show="see">
-        <h3>{{group.name}}group name</h3>
-        <label class="label"> <!--show when add button clicked ng repeat students-->
-          <input type="checkbox">
-          <h4>{{student.name}}name</h4>
+    <button class="groupEditButton" ng-click="removeGroup(group.id, $index)">Remove Group</button>
+    <button class="groupEditButton" ui-sref="editGroup({id:group.id})">Add/Remove Students</button>
+       <!-- <div class="groupsStudentsBox" ng-show="hide"> -->
+         <!-- <select>
+           <option ng-repeat="student in students">{{student.name}}</option>
+         </select> -->
+        <!-- <h3>{{group.name}}group name</h3> -->
+        <!-- <label class="label" ng-repeat="student in students"> <!--show when add button clicked ng repeat students-->
+          <!-- <input type="checkbox">
+          <h4>{{student.name}}</h4>
         </label>
-        <button>Submit</button>
-      </div>
+        <button>Submit</button> -->
+       <!-- </div> -->
   </div>
 
   <h1>Change Class Code<h1>
     <form>
-      <input type="text" placeholder="Class Code">
-      <button ng-click="codeMessage()">Submit</button>
+      <input type="text" placeholder="Class Code" ng-model="code.code">
+      <button ng-click="makeCode(code)">Submit</button>
     </form>
 </section>

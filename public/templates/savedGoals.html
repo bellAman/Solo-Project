@@ -1,11 +1,11 @@
 <menu></menu>
 <section class="inputPage">
   <h1>My Goals</h1>
-  <div class="goal-box" ng-repeat="goal in goals"> <!--ng repeat goals-->
+  <div class="goal-box" ng-repeat="goal in goals track by $index"> <!--ng repeat goals-->
     <h3>{{goal.name}}</h3>
 
       <button class="goalButton" ui-sref="editGoals({id:goal.id})">Edit</button>
-      <button class="goalButton" ng-click="deleteGoal(goal.id)">Delete</button>
+      <button class="goalButton" ng-click="deleteGoal(goal.id, $index)">Delete</button>
       <button class="goalButton" ng-click="assignGoal(goal.id)">Assign</button>
       <button class="goalButton" ng-click="unassignGoal(goal.id)">Unassign</button>
 

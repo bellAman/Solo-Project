@@ -6,13 +6,12 @@
   <h2>Student Login<h2>
   <h4>Please Enter Your Information<h4>
   <form>
-    <input  type="text"  placeholder="Class Code">
+    <input  type="text"  placeholder="Class Code" ng-model="student.classcode">
     <br/>
-    <input  type="text"  placeholder="User Name">
+    <input  type="text"  placeholder="User Name" ng-model="student.username">
     <br />
-    <input  type="password"  placeholder="Password">
+    <input  type="password"  placeholder="Password" ng-model="student.password">
     <br />
-    </br>
-    <button>Go!</button>
+    <button ng-click="getStudent(student)">Go!</button>
   </form>
 </div>

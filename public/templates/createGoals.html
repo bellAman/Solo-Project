@@ -13,42 +13,24 @@
     <button ng-click="makeGoal(info)">Submit</button>
   </form>
   <h2>Give Instructions</h2>
-  <form>
-    <table>
-      <tr class="stepsLabels">
-          <th><h3>Step Number</h3></th>
-          <th><h3>Instruction</h3></th>
-      </tr>
-      <tr class="stepsContainer" >
-        <td>Step 1</td>
-        <td><input type="text" placeholder="Type instruction for this step" ng-model="steps.one"><td>
-      </tr>
-      <tr class="stepsContainer" >
-        <td>Step 2</td>
-        <td><input type="text" placeholder="Type instruction for this step" ng-model="steps.two"><td>
-      </tr>
-      <tr class="stepsContainer" >
-        <td>Step 3</td>
-        <td><input type="text" placeholder="Type instruction for this step" ng-model="steps.three"><td>
-      </tr>
-      <tr class="stepsContainer" >
-        <td>Step 4</td>
-        <td><input type="text" placeholder="Type instruction for this step" ng-model="steps.four"><td>
-      </tr>
-      <tr class="stepsContainer" >
-        <td>Step 5</td>
-        <td><input type="text" placeholder="Type instruction for this step" ng-model="steps.five"><td>
-      </tr>
-   </table>
-   <button ng-click="makeSteps(steps)">Submit</button>
-</form>
-   <h2>Select Groups<h2>
+  <form name="stepForm">
 
+        <input type="number" placeholder="number" ng-model="step.number"><td>
+        <input type="text" placeholder="Type instruction for this step" ng-model="step.instruction"><td>
+        <button ng-click="makeStep(step)">Submit</button>
+
+</form>
+
+   <h2>Select Groups<h2>
+<form>
     <label class="label"  ng-repeat="group in groups">
       <input type="checkbox" id="checkbox" name="box" value="group.id" ng-click="idCheck(group.id)">
       <h4>{{group.name}}</h4>
     </label>
+    <button ng-click="setProgress()">Submit</button>
+</form>
     <!--ui-sref="editGoals"-->
-    <button ng-click="makeGoal(info, $index)">Submit and Review</button>
-  </form>
+    <button ng-click="finishGoal()">Review</button>
+
+
 </section>

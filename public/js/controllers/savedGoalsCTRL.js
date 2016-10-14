@@ -25,16 +25,15 @@ angular.module('trackerApp').controller('savedGoalsCTRL', function($scope, teach
     })
   }
 
-  $scope.deleteGoal = function(id){
+  $scope.deleteGoal = function(id, i){
     if (confirm('Are you sure you want to delete this? It will be permanent.')) {
        teacherService.deleteGoal(id).then(function(response){
          if(response.status === 200){
+           $scope.goals.splice(i, 1)
           alert('This goal has been deleted')
          }
       })
 }
-
-
   }
 
 });

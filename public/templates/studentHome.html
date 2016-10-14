@@ -1,7 +1,7 @@
 <section class='mainPage'>
-  <h1>Hello studentname</h1>
+  <h1>Hello {{student[0].username}}</h1>
   <h2>Choose A Goal To Work On</h2>
-  <div>
-    <button ui-sref="progress">goalname</button>
+  <div ng-repeat="goal in goals">
+    <button ui-sref="progress({id:goal.id})">{{goal.name}}</button>
   </div>
 </section>

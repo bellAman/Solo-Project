@@ -33,10 +33,12 @@ p{
   font-family: 'Muli', sans-serif;
   font-size:1rem;
   color: #333333;
+  text-align: center;
+  margin: 5px;
 }
 button{
   font-family: 'Muli', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: bold;
   color: #333333;
 }
