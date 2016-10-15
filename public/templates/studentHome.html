@@ -4,5 +4,7 @@
   <div ng-repeat="goal in goals">
     <button ui-sref="progress({id:goal.id})">{{goal.name}}</button>
   </div>
+  <div>
   <button ng-click="leave()">Log Out</button>
+  </div>
 </section>

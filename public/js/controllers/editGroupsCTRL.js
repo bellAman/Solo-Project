@@ -1,7 +1,12 @@
 angular.module('trackerApp').controller('editGroupsCTRL',function($scope, teacherService, $state){
   //$scope.test ="Are you ready"
   $scope.user= JSON.parse(localStorage.getItem("user"));
-
+  function logincheck(){
+    if(!$scope.user){
+      $state.go('teacherLogin')
+    }
+  }
+  logincheck()
   $scope.getStudents = function(user){
     teacherService.getMyStudents(user).then(function(response){
     $scope.students = response.data;

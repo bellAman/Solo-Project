@@ -3,9 +3,7 @@
   <h1>Edit and Review {{goal.name}}</h1>
 
   <h4>End Goal: {{goal.endgoal}}</h4>
-  <button>Edit</button>
   <h4>Message: {{goal.message}}</h4>
-  <button>Edit</button>
   <h2>Students to Assign</h2>
       <div class="holder" ><!--ng repeat students by goal-->
         <div ng-repeat="member in members track by $index">
@@ -25,7 +23,6 @@
     <div class="holder" ng-repeat="st in steps track by $index">
       <h3>{{st.stepnumber}}</h3>
       <h4>{{st.instruction}}</h4>
-      <button>Edit Instruction</button>
       <button ng-click="removeStep(st.stepnumber, $index)">Remove Step</button>
     </div>
 

@@ -1,6 +1,12 @@
-angular.module('trackerApp').controller('monitoringCTRL', function($scope, monitoringService){
+angular.module('trackerApp').controller('monitoringCTRL', function($scope, monitoringService, teacherService){
   $scope.test="monitoringCTRL ready"
   $scope.user= JSON.parse(localStorage.getItem("user"));
+  function logincheck(){
+    if(!$scope.user){
+      $state.go('teacherLogin')
+    }
+  }
+logincheck()
   $scope.getGoals = (function(){
     monitoringService.getGoals($scope.user).then(function(response){
     $scope.goals = response.data;
@@ -27,8 +33,6 @@ $scope.getStudents = function(id){
  if(numUsed[id]){
     return
  }
-
-
  //setInterval(function(){
   $scope.id = id
    monitoringService.getStudents(id).then(function(responseB){
@@ -64,5 +68,23 @@ $scope.getStudents = function(id){
 // $scope.clearFn = function(){
 //
 //   clearInterval();}
+
+
+$scope.removeMyAssign = function(id){
+  var me = {}
+  me.gId= $scope.id
+  me.sId = id
+  monitoringService.removeMyAssign(me).then(function(response){
+
+  })
+}
+$scope.unassignGoal = function(id, i){
+  // console.log(i);
+  teacherService.unassignGoal(id).then(function(response){
+    if (response.status === 200){
+      $scope.goals.splice(i,1)
+    }
+  })
+}
 
 });

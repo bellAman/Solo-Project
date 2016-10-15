@@ -1,6 +1,12 @@
 angular.module('trackerApp').controller('editGoalsCTRL', function($scope, $state, teacherService){
 //  $scope.test="editGoalsCTRL ready"
 $scope.user= JSON.parse(localStorage.getItem("user"));
+function logincheck(){
+  if(!$scope.user){
+    $state.go('teacherLogin')
+  }
+}
+logincheck()
 $scope.getGoal = function(id){
   teacherService.getOneGoal(id).then(function(response){
     $scope.goal = response[0]
@@ -110,5 +116,6 @@ $scope.addStudentsToGoal = function(){
       }
     })
   }
+
 
 });

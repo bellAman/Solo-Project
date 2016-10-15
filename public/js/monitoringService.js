@@ -35,4 +35,16 @@ angular.module('trackerApp').service('monitoringService', function($http,$q){
        })
        return defer.promise;
      }
+
+     this.removeMyAssign = function(me){
+       return $http({
+         method: 'PUT',
+         url: '/remove1assign',
+         data: me
+       }).then(function(res) {
+          return res;
+        }).catch(function(err) {
+         console.log(err);
+        })
+     }
 });

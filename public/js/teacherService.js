@@ -224,5 +224,11 @@ angular.module('trackerApp').service('teacherService', function($http,$q){
     })
   }
 
+  this.deleteStudent = function(id){
+    return $http({
+      method: 'DELETE',
+      url: '/student/' + id,
+    })
+  }
 
 });

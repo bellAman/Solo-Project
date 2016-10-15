@@ -2,8 +2,11 @@
 <section class="inputPage">
   <h1>My Students</h1>
   <div class="studentWrapper">
-      <div class="studentName" ng-repeat="student in students">
-        <h4>{{student.username}}</h4>
+      <div class="studentName" ng-repeat="student in students track by $index">
+        <div class="studentdiv">
+          <h4>{{student.username}}</h4>
+          <button class="groupEditButton" ng-click="deleteStudent(student.id, $index)">Delete</button>
+        </div>
         <div ng-show="hide">
           <h4>{{student.username}}'s password is {{student.password}}</h4>
         </div>

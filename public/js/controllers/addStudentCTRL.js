@@ -1,6 +1,12 @@
 angular.module('trackerApp').controller('addStudentCTRL',function($scope, teacherService){
     $scope.test = "add contoller ready"
   $scope.user= JSON.parse(localStorage.getItem("user"));
+  function logincheck(){
+    if(!$scope.user){
+      $state.go('teacherLogin')
+    }
+  }
+  logincheck()
   $scope.getGroups = function(user){
     teacherService.getMyGroups(user).then(function(response){
     $scope.groups = response.data;
@@ -47,15 +53,22 @@ $scope.getStudents = function(user){
    }
 
    $scope.removeGroup = function(id, i){
-     console.log(id);
      if (confirm('Are you sure you want to remove this group? It will be permanent.')) {
         teacherService.deleteGroup(id).then(function(response){
           if(response.status === 200){
             $scope.groups.splice(i, 1)
-           alert('This goal has been deleted')
           }
        })
  }
+   }
+   $scope.deleteStudent = function(id, i){
+     if(confirm('Are you sure? This student will be removed from all groups and assignments.')){
+       teacherService.deleteStudent(id).then(function(response){
+         if(response.status === 200){
+           $scope.students.splice(i, 1)
+         }
+       })
+     }
    }
 
 });

@@ -2,14 +2,15 @@ angular.module('trackerApp').controller('studentLoginCTRL', function($scope, stu
   //$scope.test="studentLoginCTRL ready"
   $scope.getStudent = function(student){
     studentService.getStudent(student).then(function(response){
-      if(response){$state.go('studentHome')
-        function populateStorage(){
-          localStorage.setItem("student", JSON.stringify(response));
-        }
-        populateStorage();
-      }
+     if(response[0] === undefined){
+       alert("Sorry, that login information is incorrect.")
+     }
       else {
-        alert("Sorry, that login information is incorrect.")
+        $state.go('studentHome')
+           function populateStorage(){
+             localStorage.setItem("student", JSON.stringify(response));
+           }
+           populateStorage();
       }
     })
   }

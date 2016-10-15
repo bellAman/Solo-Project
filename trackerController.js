@@ -79,6 +79,13 @@ module.exports = {
     });
   },
 
+  removeMyAssign: function(req, res){
+    db.update_assignment([req.body.gId, req.body.sId],function(err, assignment){
+      res.status(200).json(assignment)
+    });
+  },
+
+
   deleteGoal: function(req, res){
     db.delete_goalFromProgress([req.params.id], function(err){
       if(err){
@@ -104,7 +111,7 @@ module.exports = {
  })
 },
 
-deleteGoal: function(req, res){
+deleteGroup: function(req, res){
     db.delete_groupFromAssignment([req.params.id], function(err){
       if(err){
         res.status(402).json(err)
@@ -243,6 +250,31 @@ removeStudentFromGoal: function(req, res){
     }
     res.status(200).json(goal)
   });
+},
+
+deleteStudent: function(req, res){
+  db.delete_studentFromProgress([req.params.id], function(err){
+    if(err){
+      res.status(402).json(err)
+    }
+    else{
+    db.delete_studentFromGroup([req.params.id], function(err){
+      if(err){
+        res.status(402).json(err)
+      }
+      else{
+      db.delete_studentFromStudents([req.params.id],function(err, stud){
+        if(err){
+          res.status(402).json(err)
+        }
+        else{
+          res.status(200).json(stud)
+        }
+      })
+    }
+  })
+}
+})
 },
 
 };

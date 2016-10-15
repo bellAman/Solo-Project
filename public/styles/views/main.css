@@ -45,10 +45,11 @@ form,
   border-radius: 10px;
   padding: 10px;
   position: relative;
-  /*left: 2.5%;*/
   margin: 3px;
 }
-
+.login{
+  left: 2.5%;
+}
 
 span {
   color: #98afc7;
@@ -84,19 +85,17 @@ span {
 
 }
 
-.student-box {
-  background: #012235;
-  border-radius: 10px;
-  min-height: 20vh;
-  width: 200px;
+
+.monitorWrapper{
   display: flex;
-  flex-direction: column;
-  align-self: center;
-  align-items: center;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
 }
-.monitorbuttons {
-  display: flex;
+.light{
+  display: flex
 }
+
 .goal-box{
   background: #012235;
   border-radius: 10px;
@@ -167,6 +166,17 @@ th {
 }
 .memberName{
   align-self: center;
+}
+
+.status{
+  width:10px;
+  height: 10px;
+  margin: 3px;
+}
+
+.studentdiv{
+  display: flex;
+align-items: center
 }
 
 @media(min-width:450px){

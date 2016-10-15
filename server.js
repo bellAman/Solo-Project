@@ -103,12 +103,14 @@ app.put('/code', trackerCtrl.makeCode)
 app.put('/makeAssignment/:id', trackerCtrl.makeAssignment)
 app.put('/removeAssignment/:id', trackerCtrl.removeAssignment)
 app.put('/status', trackerCtrl.changeStatus)
+app.put('/remove1assign', trackerCtrl.removeMyAssign)
 
 app.delete('/deleteGoal/:id', trackerCtrl.deleteGoal)
-app.delete('/deleteGroup/:id', trackerCtrl.deleteGoal)
+app.delete('/deleteGroup/:id', trackerCtrl.deleteGroup)
 app.delete('/deleteGroupAssignment/:id', trackerCtrl.deleteGroupAssignment)
 app.delete('/studentFromGoal/:sId/:gId', trackerCtrl.removeStudentFromGoal)
 app.delete('/step/:gId/:num', trackerCtrl.removeStep)
+app.delete('/student/:id', trackerCtrl.deleteStudent)
 
 app.listen(config.port, function(){
   console.log("listening on port " + config.port);

@@ -7,6 +7,13 @@ angular.module('trackerApp').controller('progressCTRL',function($scope, $state, 
   $scope.student= JSON.parse(localStorage.getItem("student"));
   $scope.goalId = parseInt($state.params.id);
   $scope.studentId = $scope.student[0].id;
+  function logincheck(){
+    if(!$scope.student){
+      $state.go('studentLogin')
+    }
+  }
+  logincheck()
+
 
 $scope.getGoal = function(id){
   studentService.getOneGoal(id).then(function(response){

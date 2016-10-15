@@ -73,6 +73,9 @@
 .work{
   background: #6a2876;
 }
+#inprogress{
+  background: #15317e;
+}
 
 #done {
   background: #11d240;

@@ -1,6 +1,12 @@
 angular.module('trackerApp').controller('createGoalsCTRL', function($scope, teacherService, userService, $state){
 
    $scope.user= JSON.parse(localStorage.getItem("user"));
+   function logincheck(){
+     if(!$scope.user){
+       $state.go('teacherLogin')
+     }
+   }
+   logincheck()
    $scope.getGroups = function(user){
 
      teacherService.getMyGroups(user).then(function(response){
