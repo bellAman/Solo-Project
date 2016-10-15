@@ -79,13 +79,15 @@ app.post('/step', trackerCtrl.makeStep)
 app.post('/progressGoal', trackerCtrl.makeProgressGoal)
 app.post('/student', trackerCtrl.makeStudent)
 app.post('/group', trackerCtrl.makeGroup)
-
+app.post('/groupAssignment/:sId/:gId', trackerCtrl.makeGroupAssignment)
 app.post('/auth/student',trackerCtrl.checkStudent)
 
 app.get('/studentsInGroup/:id', trackerCtrl.getStudentsInGroup)
 app.get('/myStudents/:teacherID', trackerCtrl.getStudents)
+
 app.get('/goals/:teacherID', trackerCtrl.getGoals);
-app.get('/goalsStudents/:goalID', trackerCtrl.getStatus);
+app.get('/goalsStudents/:goalID', trackerCtrl.getStudentsByGoal);
+
 app.get('/groups/:teacherID', trackerCtrl.getGroups);
 app.get('/stepNums/:id', trackerCtrl.getStepNums);
 app.get('/group/:id', trackerCtrl.getGroup);
@@ -104,6 +106,9 @@ app.put('/status', trackerCtrl.changeStatus)
 
 app.delete('/deleteGoal/:id', trackerCtrl.deleteGoal)
 app.delete('/deleteGroup/:id', trackerCtrl.deleteGoal)
+app.delete('/deleteGroupAssignment/:id', trackerCtrl.deleteGroupAssignment)
+app.delete('/studentFromGoal/:sId/:gId', trackerCtrl.removeStudentFromGoal)
+app.delete('/step/:gId/:num', trackerCtrl.removeStep)
 
 app.listen(config.port, function(){
   console.log("listening on port " + config.port);

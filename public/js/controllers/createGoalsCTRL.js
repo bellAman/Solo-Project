@@ -1,4 +1,4 @@
-angular.module('trackerApp').controller('createGoalsCTRL', function($scope, teacherService, userService){
+angular.module('trackerApp').controller('createGoalsCTRL', function($scope, teacherService, userService, $state){
 
    $scope.user= JSON.parse(localStorage.getItem("user"));
    $scope.getGroups = function(user){
@@ -72,7 +72,6 @@ $scope.setProgress = function(){
           goal.stepnum = steps[y].stepnumber
           goal.student = students[k].studentid
           goal.goalId = $scope.goalID[0]
-          console.log(goal);
          calls.push(outer(goal, k));
         }
       }
@@ -82,17 +81,14 @@ $scope.setProgress = function(){
         })
       function outer(chicken, cow){
         return function inner(){
-          console.log(chicken);
-          console.log(cow++);
           teacherService.addGoaltoProgress(chicken).then(function(response){
               if(response.status === 200){
+                var gId = $scope.goalID[0]
+                $state.go('editGoals', {id:gId})
                }
              })
         }
       }
-
-
-
   }
 
   //

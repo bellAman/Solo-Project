@@ -1,4 +1,4 @@
-angular.module('trackerApp').controller('studentHomeCTRL', function($scope, studentService){
+angular.module('trackerApp').controller('studentHomeCTRL', function($scope, studentService, $state){
   $scope.test="studentHomeCTRL ready"
   $scope.student= JSON.parse(localStorage.getItem("student"));
 
@@ -10,6 +10,9 @@ angular.module('trackerApp').controller('studentHomeCTRL', function($scope, stud
   }
   $scope.getGoals(studentId)
 
-
+  $scope.leave = function(student){
+     $state.go('studentLogin')
+     localStorage.removeItem("student");
+  }
 
 });

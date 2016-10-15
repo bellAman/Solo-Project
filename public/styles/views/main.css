@@ -27,7 +27,7 @@ input {
   margin: 10px;
 }
 button {
-  height: 35px;
+  height: 40px;
   width: 150px;
   background: #11d240;
   border-color: #98afc7;
@@ -78,6 +78,7 @@ span {
   border-radius: 10px;
   width: 95%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
@@ -164,7 +165,9 @@ th {
   justify-content: center;
   flex-wrap: wrap;
 }
-
+.memberName{
+  align-self: center;
+}
 
 @media(min-width:450px){
   .menuIcon{

@@ -46,7 +46,6 @@ angular.module('trackerApp').service('teacherService', function($http,$q){
   }
 
   this.getGroup = function(id){
-    console.log(id);
    var defer = $q.defer();
     $http({
       method:"GET",
@@ -166,6 +165,62 @@ angular.module('trackerApp').service('teacherService', function($http,$q){
       return res;
     }).catch(function(err) {
      console.log(err);
+    })
+  }
+
+  this.assignToGroup = function(sId, gId){
+    return $http({
+      method: 'POST',
+      url: '/groupAssignment/'+ sId +'/'+ gId
+   }).then(function(res) {
+      return res;
+    }).catch(function(err) {
+     console.log(err);
+    })
+  }
+
+  this.removeFromGroup = function(id){
+    return $http({
+      method: 'DELETE',
+      url: '/deleteGroupAssignment/' + id,
+    })
+  }
+
+  this.getStudentsByGoal = function(id){
+   var defer = $q.defer();
+    $http({
+      method:"GET",
+      url:'/goalsStudents/'+ id
+   }).then(function(response){
+     defer.resolve(response.data);
+   })
+   return defer.promise;
+  }
+
+  this.removeStudentFromGoal = function(sId, gId){
+    return $http({
+      method: 'DELETE',
+      url: '/studentFromGoal/' + sId + '/' + gId,
+    })
+  }
+
+  this.removeStep = function(num, gId){
+    return $http({
+      method: 'DELETE',
+      url: '/step/' + gId + '/' + num,
+    })
+  }
+
+  this.getOneGoal = function(id){
+    return $http({
+      method: 'GET',
+      url: '/goal/' + id,
+    })
+    .then(function(res) {
+      return res.data;
+    })
+    .catch(function(err) {
+      console.log(err);
     })
   }
 

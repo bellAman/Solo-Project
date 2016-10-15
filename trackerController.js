@@ -13,9 +13,11 @@ module.exports = {
     });
   },
 
-  getStatus: function(req, res){
+  getStudentsByGoal: function(req, res){
     db.read_studentsByGoal([req.params.goalID],function(err, status){
-      console.log(res);
+      if(err){
+        res.status(400).json(err)
+      }
       res.status(200).json(status)
     });
   },
@@ -26,29 +28,11 @@ module.exports = {
     });
   },
 
-  // getAssignments: function(req, res){
-  //   db.read_assignedGoals([req.params.studentID],function(err, assignments){
-  //     res.status(200).json(assignments)
-  //   });
-  // },
-
-  // getOneGoal: function(req, res){
-  //   db.read_goal([req.params.id],function(err, goal){
-  //     res.status(200).json(goal)
-  //   });
-  // },
-
   getSteps: function(req, res){
     db.read_steps([req.params.studentID],function(err, steps){
       res.status(200).json(steps)
     });
   },
-
-  // getGroupAssignments: function(req, res){
-  //   db.read_groupAssignments([req.params.teacherID],function(err, groupAssignments){
-  //     res.status(200).json(groupAssignments)
-  //   });
-  // },
 
   getGoals: function(req, res){
     db.read_allGoals([req.params.teacherID],function(err, goals){
@@ -71,6 +55,15 @@ module.exports = {
   getStudentsInGroup: function(req, res){
     db.read_studentsInGroup([req.params.id],function(err, students){
       res.status(200).json(students)
+    });
+  },
+
+  makeGroupAssignment: function(req, res){
+    db.make_groupAssign([req.params.sId, req.params.gId],function(err, assign){
+      if(err){
+        res.status(400).json(err)
+      }
+      res.status(200).json(assign)
     });
   },
 
@@ -130,6 +123,25 @@ deleteGoal: function(req, res){
 
 },
 
+
+removeStep: function(req, res){
+    db.delete_stepFromProgress([req.params.gId, req.params.num], function(err){
+      if(err){
+        res.status(402).json(err)
+      }
+      else{
+      db.delete_stepFromSteps([req.params.gId, req.params.num],function(err, goal){
+        if(err){
+          res.status(402).json(err)
+        }
+        else{
+          res.status(200).json(goal)
+        }
+      })
+    }
+  })
+
+},
 
   makeGoal:function(req, res) {
     db.create_goal([req.body.id, req.body.name, req.body.endgoal, req.body.message], function(err, goal) {
@@ -212,5 +224,25 @@ deleteGoal: function(req, res){
       res.status(200).json(status)
     });
   },
+
+  deleteGroupAssignment: function(req, res){
+      db.delete_studentFromGroup([req.params.id], function(err, goal){
+        if(err){
+          res.status(402).json(err)
+        }
+        else{
+            res.status(200).json(goal)
+          }
+  })
+},
+
+removeStudentFromGoal: function(req, res){
+  db.delete_StudentFromGoal([req.params.sId, req.params.gId],function(err, goal){
+    if(err){
+      res.status(400).json(err)
+    }
+    res.status(200).json(goal)
+  });
+},
 
 };

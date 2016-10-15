@@ -1,1 +1,1 @@
-SELECT stepnumber FROM steps WHERE goalid = $1;
+SELECT stepnumber, instruction FROM steps WHERE goalid = $1;
