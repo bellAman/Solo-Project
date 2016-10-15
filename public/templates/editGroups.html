@@ -1,12 +1,12 @@
 <menu></menu>
 <section class="inputPage">
-
+<img class="backarrow" src="./images/arrow-88-48.png" ui-sref="addStudents">
 <h1>Group Name: {{group[0].name}}</h1>
 <h2>Students in this group</h2>
-<!-- <div class=" studentWrapper"> -->
+
   <div class="studentName" ng-repeat="member in members">
-    <h4 class="memberName">{{member.username}}</h4>
-    <button ng-click="removeFromGroup(member.studentid)">Remove</button>
+    <h3 class="memberName">{{member.username}}</h3>
+    <button class="groupEditButton" ng-click="removeFromGroup(member.studentid)">Remove</button>
   </div>
   <form>
     <h2>My Students</h2>

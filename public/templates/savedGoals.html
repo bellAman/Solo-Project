@@ -3,7 +3,7 @@
   <h1>My Goals</h1>
   <div class="goal-box" ng-repeat="goal in goals track by $index"> <!--ng repeat goals-->
     <h3>{{goal.name}}</h3>
-
+      <button ui-sref="monitoring({id:goal.id})">Monitor Student Progress</button>
       <button class="goalButton" ui-sref="editGoals({id:goal.id})">Edit</button>
       <button class="goalButton" ng-click="deleteGoal(goal.id, $index)">Delete</button>
       <button class="goalButton" ng-click="assignGoal(goal.id)">Assign</button>
@@ -11,6 +11,6 @@
 
   </div>
   <div>
-    <button ui-sref="monitoring">Monitor Students</button>
+    <button >Monitor Students</button>
   </div>
 </section>

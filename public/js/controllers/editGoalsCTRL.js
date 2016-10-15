@@ -1,5 +1,6 @@
 angular.module('trackerApp').controller('editGoalsCTRL', function($scope, $state, teacherService){
 //  $scope.test="editGoalsCTRL ready"
+$scope.id =$state.params.id
 $scope.user= JSON.parse(localStorage.getItem("user"));
 function logincheck(){
   if(!$scope.user){

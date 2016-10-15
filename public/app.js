@@ -28,7 +28,7 @@ angular.module('trackerApp',['ui.router'])
     controller:"editGoalsCTRL"
   })
   .state("monitoring",{
-    url: "/teacher/monitoring",
+    url: "/teacher/monitoring/:id",
     templateUrl:"./templates/monitoring.html",
     controller:"monitoringCTRL"
   })

@@ -4,11 +4,9 @@
   <div class="studentWrapper">
       <div class="studentName" ng-repeat="student in students track by $index">
         <div class="studentdiv">
-          <h4>{{student.username}}</h4>
+          <h3>{{student.username}}</h3>
+            <h4 ng-show="hide">{{student.username}}'s password is {{student.password}}</h4>
           <button class="groupEditButton" ng-click="deleteStudent(student.id, $index)">Delete</button>
-        </div>
-        <div ng-show="hide">
-          <h4>{{student.username}}'s password is {{student.password}}</h4>
         </div>
       </div>
   </div>

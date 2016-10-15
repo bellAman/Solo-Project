@@ -1,17 +1,19 @@
-angular.module('trackerApp').controller('monitoringCTRL', function($scope, monitoringService, teacherService){
-  $scope.test="monitoringCTRL ready"
+angular.module('trackerApp').controller('monitoringCTRL', function($scope, monitoringService, teacherService, $state, $interval){
   $scope.user= JSON.parse(localStorage.getItem("user"));
+
   function logincheck(){
     if(!$scope.user){
       $state.go('teacherLogin')
     }
   }
-logincheck()
-  $scope.getGoals = (function(){
-    monitoringService.getGoals($scope.user).then(function(response){
-    $scope.goals = response.data;
-  })
-})();
+  logincheck()
+
+  $scope.getGoal = function(id){
+    teacherService.getOneGoal(id).then(function(response){
+      $scope.goal = response[0]
+    })
+  }
+    $scope.getGoal($state.params.id)
 
 
 Student = function(goalId, studentId, studentName){
@@ -26,18 +28,26 @@ Step = function(id, student, stepnum, status){
   this.stepnumber = stepnum;
   this.status = status;
 }
-$scope.studentsData = [];
 
+var intervalids = [];
 var numUsed = {};
 $scope.getStudents = function(id){
- if(numUsed[id]){
-    return
- }
- //setInterval(function(){
-  $scope.id = id
+$scope.studentsData = [];
+$scope.id = id
    monitoringService.getStudents(id).then(function(responseB){
      var sIDarray = [];
-          var students = responseB.data
+          var students = responseB.data.sort(function(a, b) {
+              var nameA = a.username.toUpperCase();
+              var nameB = b.username.toUpperCase();
+              if (nameA < nameB) {
+                return -1;
+              }
+              if (nameA > nameB) {
+                return 1;
+              }
+
+              return 0;
+            })
           for(var i = 0; i < students.length; i++){
             sIDarray.push(students[i].studentid)
             $scope.studentsData.push(new Student(id, students[i].studentid, students[i].username))
@@ -47,6 +57,15 @@ $scope.getStudents = function(id){
              var gId = $scope.id
              $scope.getSteps = function(gId, sId){
                 monitoringService.getSteps(gId, sId).then(function(responseC){
+                  responseC.sort(function(a, b){
+                  if (a.stepnumber > b.stepnumber) {
+                      return 1;
+                    }
+                    if (a.stepnumber < b.stepnumber) {
+                      return -1;
+                    }
+                    return 0;
+                  });
                   var data = $scope.studentsData
                   for(var y = 0; y < data.length; y++){
                       for(var z = 0; z < responseC.length; z++){
@@ -61,13 +80,13 @@ $scope.getStudents = function(id){
             $scope.getSteps(gId, sId);
           }
    })
-   numUsed[id]= true;
-//console.log('ran');
-//},5000,id)
 };
-// $scope.clearFn = function(){
-//
-//   clearInterval();}
+
+$scope.getStudents($state.params.id)
+
+ $scope.refresh = $interval(function(){
+   $scope.getStudents($state.params.id)
+},2000)
 
 
 $scope.removeMyAssign = function(id){
@@ -78,13 +97,19 @@ $scope.removeMyAssign = function(id){
 
   })
 }
-$scope.unassignGoal = function(id, i){
-  // console.log(i);
+
+$scope.unassignGoal = function(id){
   teacherService.unassignGoal(id).then(function(response){
     if (response.status === 200){
-      $scope.goals.splice(i,1)
+      $state.go('teacherHome')
     }
   })
 }
+
+$scope.$on("$destroy",function(){
+    if (angular.isDefined($scope.refresh)) {
+        $interval.cancel($scope.refresh);
+    }
+});
 
 });

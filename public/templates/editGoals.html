@@ -1,7 +1,6 @@
 <menu></menu>
 <section class="inputPage">
   <h1>Edit and Review {{goal.name}}</h1>
-
   <h4>End Goal: {{goal.endgoal}}</h4>
   <h4>Message: {{goal.message}}</h4>
   <h2>Students to Assign</h2>
@@ -32,5 +31,5 @@
         <button ng-click="makeStep(step)">Add Step</button>
   </form>
   <button ng-click="assign()">Assign to Students</button>
-  <button ui-sref="monitoring">Monitor Students</button>
+  <button ui-sref="monitoring({id: id})">Monitor Students</button>
 </section>

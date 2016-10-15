@@ -1,10 +1,9 @@
 <menu></menu>
-<section class="inputPage">
+<section class="mainPage">
   <h1>Monitor Students</h1>
-  <div class="goalWrapper" ng-repeat="goal in goals track by $index">
-      <h2 >{{goal.name}}</h2>
+  <h2>{{goal.name}}</h2>
       <div class="monitorWrapper">
-        <div class="student-box" ng-repeat="student in students track by $index" ng-if="student.goalId === goal.id">
+        <div class="student-box" ng-repeat="student in students track by $index" >
           <h4>{{student.name}}</h5>
           <div class="light">
             <div class="status" id="{{step.status}}" ng-repeat="step in student.steps"></div>
@@ -13,9 +12,7 @@
         </div>
       <div>
       <div class="monitorbuttons">
-          <button ng-click="$watch(getStudents(goal.id), clearFn())">Get Students</button>
-          <button ui-sref="editGoals({id: goal.id})">Edit Goal</button>
-          <button ng-click="unassignGoal(goal.id, $index)">Remove Assignment</button>
-      </div>
-  </div>
+          <button ui-sref="editGoals({id:id})">Edit Goal</button>
+          <button ng-click="unassignGoal(id)">Remove Assignment</button>
+       </div>
 </section>
