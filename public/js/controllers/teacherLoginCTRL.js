@@ -8,7 +8,6 @@ angular.module('trackerApp')
 $scope.user = 'NOT LOGGED IN';
   function getUser() {
       userService.getUser().then(function(user) {
-        console.log(user);
         if (user) {$state.go('teacherHome');
         function populateStorage(){
           localStorage.setItem("user", JSON.stringify(user));
@@ -23,7 +22,6 @@ $scope.user = 'NOT LOGGED IN';
 
 
     $scope.loginLocal = function(email, password) {
-      console.log('Logging in with', email, password);
       userService.loginLocal({
         username: email,
         password: password
@@ -49,9 +47,3 @@ $scope.user = 'NOT LOGGED IN';
 
 
   })
-
-//   $scope.testUsers = function(){
-//     teacherService.getUsers().then(function(response){
-//       console.log(response)
-//   })
-// }

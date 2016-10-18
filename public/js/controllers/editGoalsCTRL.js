@@ -118,5 +118,45 @@ $scope.addStudentsToGoal = function(){
     })
   }
 
+   $scope.finishGoal = function(){
+      teacherService.clearProgress($state.params.id).then(function(response){
+      if(response.status === 200){
+    teacherService.getSteps(parseInt($state.params.id)).then(function(response){
+
+      var steps = response
+      var calls =[];
+console.log(steps);
+      for(var y = 0; y < steps.length; y++){
+
+        var stud = $scope.members.slice()
+        console.log($scope.members);
+        for(var k = 0; k < stud.length; k++){
+          var goal= {}
+          goal.stepnum = steps[y].stepnumber
+          goal.student = stud[k].id
+          console.log(goal.student);
+          goal.goalId = parseInt($state.params.id)
+         calls.push(outer(goal, k));
+        }
+      }
+      calls.forEach(function(element){
+        element()
+      })
+        })
+      function outer(chicken, cow){
+        return function inner(){
+          teacherService.addGoaltoProgress(chicken).then(function(response){
+              if(response.status === 200){
+                // var gId = $scope.goalID[0]
+                // $state.go('editGoals', {id:gId}
+               }
+             })
+        }
+      }
+
+}
+})
+}
+
 
 });

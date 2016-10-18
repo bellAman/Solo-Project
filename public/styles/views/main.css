@@ -88,7 +88,7 @@ span {
 
 .monitorWrapper{
   display: flex;
-flex-direction: row;
+flex-direction: column;
 flex-wrap: wrap;
 justify-content: space-around;
 }
@@ -168,15 +168,25 @@ th {
   align-self: center;
 }
 
+button:hover{
+  background: #6a2876;
+}
+
 .status{
-  width:10px;
-  height: 10px;
+  width:15px;
+  height: 15px;
   margin: 3px;
+  color: #333333;
 }
 
 .studentdiv{
   display: flex;
 align-items: center
+}
+.student-box{
+  display: flex;
+flex-wrap: wrap;
+justify-content: center;
 }
 
 .backarrow{

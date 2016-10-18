@@ -76,6 +76,7 @@ app.get('/auth/logout', function(req, res) {
 app.post('/user', trackerCtrl.makeUser)
 app.post('/goal', trackerCtrl.makeGoal)
 app.post('/step', trackerCtrl.makeStep)
+app.post('/pStep', trackerCtrl.makePStep)
 app.post('/progressGoal', trackerCtrl.makeProgressGoal)
 app.post('/student', trackerCtrl.makeStudent)
 app.post('/group', trackerCtrl.makeGroup)
@@ -111,6 +112,7 @@ app.delete('/deleteGroupAssignment/:id', trackerCtrl.deleteGroupAssignment)
 app.delete('/studentFromGoal/:sId/:gId', trackerCtrl.removeStudentFromGoal)
 app.delete('/step/:gId/:num', trackerCtrl.removeStep)
 app.delete('/student/:id', trackerCtrl.deleteStudent)
+app.delete('/clearProgress/:id', trackerCtrl.clearProgress)
 
 app.listen(config.port, function(){
   console.log("listening on port " + config.port);

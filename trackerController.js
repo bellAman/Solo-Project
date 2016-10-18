@@ -85,6 +85,16 @@ module.exports = {
     });
   },
 
+  clearProgress: function(req, res){
+    db.delete_goalFromProgress([req.params.id], function(err, g){
+      if(err){
+        res.status(402).json(err)
+      }
+      else{
+       res.status(200).json(g)
+      }
+    })
+  },
 
   deleteGoal: function(req, res){
     db.delete_goalFromProgress([req.params.id], function(err){
@@ -161,6 +171,14 @@ removeStep: function(req, res){
       res.status(200).json(step)
     });
   },
+
+  makePStep:function(req, res) {
+    console.log(req.body);
+    db.create_pStep([req.body.number, req.body.sId, req.body.id], function(err, step) {
+      res.status(200).json(step)
+    });
+  },
+
 
   makeProgressGoal:function(req, res) {
     db.create_progressGoal([req.body.stepnum, req.body.student, req.body.goalId], function(err, pStep) {

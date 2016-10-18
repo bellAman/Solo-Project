@@ -3,16 +3,18 @@
   <h1>Monitor Students</h1>
   <h2>{{goal.name}}</h2>
       <div class="monitorWrapper">
-        <div class="student-box" ng-repeat="student in students track by $index" >
-          <h4>{{student.name}}</h5>
-          <div class="light">
-            <div class="status" id="{{step.status}}" ng-repeat="step in student.steps"></div>
+        <div class="student-box">
+          <div  ng-repeat="student in students track by $index" >
+            <h4>{{student.name}}</h5>
+            <div class="light">
+              <div class="status" id="{{step.status}}" ng-repeat="step in student.steps">{{step.stepnumber}}</div>
+            </div>
+            <button ng-click="removeMyAssign(student.id)">Remove Student</button>
           </div>
-          <button ng-click="removeMyAssign(student.id)">Remove Student</button>
         </div>
-      <div>
-      <div class="monitorbuttons">
-          <button ui-sref="editGoals({id:id})">Edit Goal</button>
-          <button ng-click="unassignGoal(id)">Remove Assignment</button>
-       </div>
+          <div class="monitorbuttons">
+              <button ui-sref="editGoals({id:id})">Edit Goal</button>
+              <button ng-click="unassignGoal(id)">Remove Assignment</button>
+          </div>
+      </div>
 </section>
