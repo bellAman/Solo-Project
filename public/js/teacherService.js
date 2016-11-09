@@ -109,23 +109,6 @@ angular.module('trackerApp').service('teacherService', function($http,$q){
     })
   }
 
-  // this.addProgressStep = function(step){
-  //
-  //   console.log('service ran');
-  //   console.log(step);
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/pStep',
-  //     data: step
-  //   }).then(function(res) {
-  //     return res;
-  //   }).catch(function(err) {
-  //     console.log(err);
-  //   })
-  // }
-
-
-
  this.addGoaltoProgress = function(goal){
    return $http({
      method: 'POST',

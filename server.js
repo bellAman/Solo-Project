@@ -34,9 +34,7 @@ app.use(passport.session());
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    console.log('I ran');
     db.getUserByEmail([username], function(err, user) {
-      console.log(user);
       user = user[0];
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
@@ -61,7 +59,6 @@ passport.deserializeUser(function(id, done){
 app.post('/auth/local',
 passport.authenticate('local',{failureRedirect: '/#/teacher' } ), function(req, res) {
     res.redirect('/#/teacher/home')
-
 });
 
 app.get('/auth/me', function(req, res) {
@@ -85,10 +82,8 @@ app.post('/auth/student',trackerCtrl.checkStudent)
 
 app.get('/studentsInGroup/:id', trackerCtrl.getStudentsInGroup)
 app.get('/myStudents/:teacherID', trackerCtrl.getStudents)
-
 app.get('/goals/:teacherID', trackerCtrl.getGoals);
 app.get('/goalsStudents/:goalID', trackerCtrl.getStudentsByGoal);
-
 app.get('/groups/:teacherID', trackerCtrl.getGroups);
 app.get('/stepNums/:id', trackerCtrl.getStepNums);
 app.get('/group/:id', trackerCtrl.getGroup);

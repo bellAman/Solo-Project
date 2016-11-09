@@ -1,5 +1,4 @@
 angular.module('trackerApp').controller('editGoalsCTRL', function($scope, $state, teacherService){
-//  $scope.test="editGoalsCTRL ready"
 $scope.id =$state.params.id
 $scope.user= JSON.parse(localStorage.getItem("user"));
 function logincheck(){
@@ -64,8 +63,7 @@ $state.getSteps($state.params.id)
  }
 
 $scope.addStudentsToGoal = function(){
-  //teacherService.getSteps(parseInt($state.params.id)).then(function(response){
-    var steps = $scope.steps //response
+    var steps = $scope.steps
     var calls =[];
     for(var y = 0; y < steps.length; y++){
       var students = $scope.studentIds.slice()
@@ -80,7 +78,7 @@ $scope.addStudentsToGoal = function(){
     calls.forEach(function(element){
       element()
     })
-    //  })
+
     function outer(chicken, cow){
       return function inner(){
         teacherService.addGoaltoProgress(chicken).then(function(response){
@@ -125,16 +123,13 @@ $scope.addStudentsToGoal = function(){
 
       var steps = response
       var calls =[];
-console.log(steps);
       for(var y = 0; y < steps.length; y++){
 
         var stud = $scope.members.slice()
-        console.log($scope.members);
         for(var k = 0; k < stud.length; k++){
           var goal= {}
           goal.stepnum = steps[y].stepnumber
           goal.student = stud[k].id
-          console.log(goal.student);
           goal.goalId = parseInt($state.params.id)
          calls.push(outer(goal, k));
         }
@@ -147,8 +142,6 @@ console.log(steps);
         return function inner(){
           teacherService.addGoaltoProgress(chicken).then(function(response){
               if(response.status === 200){
-                // var gId = $scope.goalID[0]
-                // $state.go('editGoals', {id:gId}
                }
              })
         }

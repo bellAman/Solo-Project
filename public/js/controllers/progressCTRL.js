@@ -1,5 +1,4 @@
 angular.module('trackerApp').controller('progressCTRL',function($scope, $state, studentService){
-  // $scope.test = "contoller ready"
   $scope.revealer = function(){
     this.hide = !this.hide;
     this.show = !this.show;
@@ -36,7 +35,6 @@ $scope.getSteps = function(sId, gId){
     });
 
     $scope.steps = response
-    console.log(response);
   })
 }
 $scope.getSteps($scope.studentId, $scope.goalId);

@@ -1,5 +1,4 @@
 angular.module('trackerApp').controller('studentLoginCTRL', function($scope, studentService, $state){
-  //$scope.test="studentLoginCTRL ready"
   $scope.getStudent = function(student){
     studentService.getStudent(student).then(function(response){
      if(response[0] === undefined){

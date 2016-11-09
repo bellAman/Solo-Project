@@ -1,5 +1,4 @@
 angular.module('trackerApp').controller('teacherHomeCTRL', function($scope, userService, $state){
-//  $scope.test= "working"
     $scope.user= JSON.parse(localStorage.getItem("user"));
     function logincheck(){
       if(!$scope.user){

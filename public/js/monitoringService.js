@@ -6,7 +6,6 @@ angular.module('trackerApp').service('monitoringService', function($http,$q){
         method:"GET",
         url:'/assignedgoals/'+ id
      }).then(function(response){
-
        defer.resolve(response);
      })
      return defer.promise;
@@ -18,7 +17,6 @@ angular.module('trackerApp').service('monitoringService', function($http,$q){
          method:"GET",
          url:'/students/'+ id
       }).then(function(response){
-
         defer.resolve(response);
       })
       return defer.promise;
@@ -30,7 +28,6 @@ angular.module('trackerApp').service('monitoringService', function($http,$q){
           method:"GET",
           url:'/steps/'+ id + '/' + sId
        }).then(function(response){
-
          defer.resolve(response.data);
        })
        return defer.promise;

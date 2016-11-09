@@ -1,9 +1,7 @@
 angular.module('trackerApp')
 .controller('teacherLoginCTRL', function($scope, userService, $state){
-  //$scope.test="teacherLoginCTRL ready"
   $scope.revealer = function(){
     $scope.hide = !$scope.hide;
-  //  $scope.show = !$scope.show;
   }
 $scope.user = 'NOT LOGGED IN';
   function getUser() {

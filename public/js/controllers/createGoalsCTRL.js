@@ -97,8 +97,7 @@ $scope.setProgress = function(){
       }
   }
 
-  //
-  //
+
 
 
 });

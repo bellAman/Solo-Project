@@ -1,7 +1,6 @@
 <menu></menu>
 <section class="inputPage">
   <h1>Create a Goal<h1>
-
   <h2>Make the Goal</h2>
   <form>
     <h3>Name of Goal<h3>
@@ -14,23 +13,17 @@
   </form>
   <h2>Give Instructions</h2>
   <form name="stepForm">
-
         <input type="number" placeholder="number" ng-model="step.number"><td>
         <input type="text" placeholder="Type instruction for this step" ng-model="step.instruction"><td>
         <button ng-click="makeStep(step)">Submit</button>
-
-</form>
-
-   <h2>Select Groups<h2>
-<form>
+  </form>
+  <h2>Select Groups<h2>
+  <form>
     <label class="label"  ng-repeat="group in groups">
       <input type="checkbox" id="checkbox" name="box" value="group.id" ng-click="idCheck(group.id)">
       <h4>{{group.name}}</h4>
     </label>
     <button ng-click="setProgress()">Submit</button>
-</form>
-    <!--ui-sref="editGoals"-->
-    <button ng-click="finishGoal()">Finish and Review</button>
-
-
+  </form>
+  <button ng-click="finishGoal()">Finish and Review</button>
 </section>

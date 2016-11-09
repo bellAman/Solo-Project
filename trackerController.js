@@ -173,7 +173,6 @@ removeStep: function(req, res){
   },
 
   makePStep:function(req, res) {
-    console.log(req.body);
     db.create_pStep([req.body.number, req.body.sId, req.body.id], function(err, step) {
       res.status(200).json(step)
     });
@@ -181,6 +180,7 @@ removeStep: function(req, res){
 
 
   makeProgressGoal:function(req, res) {
+    console.log(req.body);
     db.create_progressGoal([req.body.stepnum, req.body.student, req.body.goalId], function(err, pStep) {
       res.status(200).json(pStep)
     });
