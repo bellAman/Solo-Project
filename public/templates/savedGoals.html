@@ -1,7 +1,7 @@
 <menu></menu>
 <section class="inputPage">
   <h1>My Goals</h1>
-  <div class="goal-box" ng-repeat="goal in goals track by $index"> <!--ng repeat goals-->
+  <div class="goal-box" ng-repeat="goal in goals track by $index">
     <h3>{{goal.name}}</h3>
       <button ui-sref="monitoring({id:goal.id})">Monitor Student Progress</button>
       <button class="goalButton" ui-sref="editGoals({id:goal.id})">Edit</button>
