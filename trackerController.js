@@ -14,7 +14,7 @@ module.exports = {
   },
 
   getStudentsByGoal: function(req, res){
-    db.read_studentsByGoal([req.params.goalID],function(err, status){
+    db.read_studentsByGoal([req.params.goalID.toString()],function(err, status){
       if(err){
         res.status(400).json(err)
       }

@@ -1,4 +1,4 @@
 {
-  "port": "8775",
+  "port": "80",
   "SESSION_SECRET": "under your thumb I cant breath"
 }
